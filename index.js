@@ -1,0 +1,21 @@
+var express = require('express');
+var path = require('path');
+var favicon = require('serve-favicon');
+var logger = require('morgan');
+var helmet = require('helmet');
+var compression = require('compression');
+var bodyParser = require('body-parser');
+var Sibling = require('./routes/siblings');
+var app = express();
+app.use(compression());
+app.use(helmet());
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(favicon(__dirname + '/public/images/favicon.ico'));
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true}));
+app.use(Sibling);
+app.use(function(req, res, next) {
+	res.status(404).send('Not Found!');
+});
+module.exports = app;
