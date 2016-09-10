@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var db = mongoose.connection;
-mongoose.connect('mongodb://localhost/tp');
+mongoose.connect('mongodb://hamzaalalach:43898561@ds147905.mlab.com:47905/tp');
 db.on('error', console.error.bind(console, 'connection error: '));
 db.on('open', function() {
 	console.log('Connected to db!');

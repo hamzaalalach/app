@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var db = mongoose.connection;
 var Siblings = require('../models/siblings');
-mongoose.connect('mongodb://localhost/tp');
+mongoose.connect('mongodb://hamzaalalach:43898561@ds147905.mlab.com:47905/tp');
 db.on('error', console.log.bind(console, 'connection error: '));
 db.on('open', function() {
 	exports.findAll = function(callback) {
